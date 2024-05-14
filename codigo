@@ -1,0 +1,39 @@
+# Define a função para calcular a média das notas dos alunos.
+def calcular_media(notas):
+    # Calcula a soma de todas as notas dos alunos.
+    total = sum(notas.values())
+    # Divide a soma das notas pela quantidade de alunos para obter a média.
+    media = total / len(notas)
+    # Retorna a média da turma.
+    return media
+
+# Cria um dicionário vazio para armazenar os alunos e suas notas.
+alunos = {}
+
+# Pede ao usuário que insira a quantidade de alunos.
+qtd_alunos = int(input("Digite a quantidade de alunos: "))
+
+# Loop para pedir o nome e nota de cada aluno e armazená-los no dicionário de alunos.
+for i in range(qtd_alunos):
+    # Pede ao usuário que digite o nome do aluno.
+    nome = input("Digite o nome do aluno: ")
+    # Pede ao usuário que digite a nota do aluno.
+    nota = float(input("Digite a nota do aluno: "))
+    # Adiciona o nome e a nota do aluno ao dicionário de alunos.
+    alunos[nome] = nota
+
+# Calcula a média da turma utilizando a função definida anteriormente.
+media_turma = calcular_media(alunos)
+
+# Imprime a média da turma.
+print("\nMédia da turma:", media_turma)
+
+# Loop para verificar se cada aluno passou ou não, comparando sua nota com a média da turma.
+for aluno, nota in alunos.items():
+    # Verifica se a nota do aluno é maior ou igual à média da turma.
+    if nota >= media_turma:
+        # Se a nota do aluno for maior ou igual à média da turma, imprime que o aluno passou.
+        print(aluno, "passou")
+    else:
+        # Se a nota do aluno for menor que a média da turma, imprime que o aluno não passou.
+        print(aluno, "não passou")
